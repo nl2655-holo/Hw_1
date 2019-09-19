@@ -52,8 +52,25 @@ as.factor(pull(p1_df, vec_logical))*pull(p1_df, norm_samp)
 as.numeric(as.factor(pull(p1_df, vec_logical)))*pull(p1_df, norm_samp)
 ```
 
+# Problem 2
 
+## 2.1
 
+```{r}
+set.seed(114514)
+p2_df = tibble(
+  x = rnorm(500),
+  y = rnorm(500),
+  vec_logical = x+y>1,
+  vec_numeric = as.numeric(vec_logical),
+  vec_factor = as.factor(vec_logical)
+)
+```
+
+*Description*:
+**The size of the dataset**: The dataset contains `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns.
+The **mean** of x is `r mean(pull(p2_df, x))`; the **median** of x is `r median(pull(p2_df, x))`; 
+and the **standard deviation** of x is `r sd(pull(p2_df, x))`
 
 
 
