@@ -11,7 +11,7 @@ Here's a **code chunk** that samples from
 a _normal distribution_:
 
 ```{r}
-samp = rnorm(100)
+normal_db = rnorm(8)
 length(samp)
 ```
 
