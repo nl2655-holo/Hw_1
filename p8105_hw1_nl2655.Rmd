@@ -7,12 +7,11 @@ output: github_document
 
 # Problem 1
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
+
 
 ```{r}
 library(tidyverse)
-
+set.seed(1551)
 
 p1_df = tibble(
   norm_samp = rnorm(8),
@@ -21,9 +20,32 @@ p1_df = tibble(
   vec_factor = factor(c("l","m","s","s","m","l","m","s"))
 )
 
+mean(pull(p1_df, norm_samp))
+mean(pull(p1_df, vec_logical))
+mean(pull(p1_df, vec_char))
+mean(pull(p1_df, vec_factor))
 ```
 
-# Section 2
+From the result of Knit, the mean of sample is -0.76, the mean of logical vector is 0.375.
+The character vector and the factor vector cannot working on mean.
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
+
+
+
+```{r,results='hide'}
+as.numeric(pull(p1_df, vec_logical))
+as.numeric(pull(p1_df, vec_char))
+as.numeric(pull(p1_df, vec_factor))
+```
+
+The logical vector are successfully convert to numeric vector, because it 
+factor vector are successfully convert to numeric vector, because the factor vector is categorical variable that can be converted to the orderal numbers.
+But character vertor failed, because the names cannot be seen as any kind of numbers.
+
+This partly explain the situation happen when take the mean. The character vector cannot be converted 
+to numeric, thus it cannot be taken mean.
+
+
+
+
+
