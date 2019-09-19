@@ -38,7 +38,7 @@ as.numeric(pull(p1_df, vec_char))
 as.numeric(pull(p1_df, vec_factor))
 ```
 
-The logical vector are successfully convert to numeric vector, because it 
+The logical vector are successfully convert to numeric vector, because it is binary variable that can be converted to the number "1" and "0". 
 factor vector are successfully convert to numeric vector, because the factor vector is categorical variable that can be converted to the orderal numbers.
 But character vertor failed, because the names cannot be seen as any kind of numbers.
 
