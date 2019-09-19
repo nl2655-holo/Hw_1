@@ -70,7 +70,17 @@ p2_df = tibble(
 *Description*:
 **The size of the dataset**: The dataset contains `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns.
 The **mean** of x is `r mean(pull(p2_df, x))`; the **median** of x is `r median(pull(p2_df, x))`; 
-and the **standard deviation** of x is `r sd(pull(p2_df, x))`
+and the **standard deviation** of x is `r sd(pull(p2_df, x))`. The proportion
+of of cases for which x+y>1 is `r sum(pull(p2_df, vec_numeric))/500`.
+
+```{r}
+log_gg = ggplot(p2_df, aes(x = x, y = y, color = pull(p2_df, vec_logical))) + geom_point()
+log_gg
+ggplot(p2_df, aes(x = x, y = y, color = pull(p2_df, vec_numeric))) + geom_point()
+ggplot(p2_df, aes(x = x, y = y, color = pull(p2_df, vec_factor))) + geom_point()
+ggsave(plot = log_gg, "logical.pdf", height = 4, width = 6)
+```
+
 
 
 
