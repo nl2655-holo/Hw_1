@@ -26,7 +26,9 @@ mean(pull(p1_df, vec_char))
 mean(pull(p1_df, vec_factor))
 ```
 
-From the result of Knit, the mean of sample is -0.76, the mean of logical vector is 0.375.
+*Summary*: 
+
+From the result of Knit, the **mean of sample** is -0.76, the **mean of logical vector** is 0.375.
 The character vector and the factor vector cannot working on mean.
 
 ## 1.2
@@ -37,9 +39,13 @@ as.numeric(pull(p1_df, vec_char))
 as.numeric(pull(p1_df, vec_factor))
 ```
 
+*Summary*: 
+
 The logical vector are successfully convert to numeric vector, because it is binary variable that can be converted to the number "1" and "0". 
 factor vector are successfully convert to numeric vector, because the factor vector is categorical variable that can be converted to the orderal numbers.
 But character vertor failed, because the names cannot be seen as any kind of numbers.
+
+*Explanation*: 
 
 This partly explain the situation happen when take the mean. The character vector cannot be converted 
 to numeric, thus it cannot be taken mean.
@@ -68,10 +74,13 @@ p2_df = tibble(
 ```
 
 *Description*:
+
 **The size of the dataset**: The dataset contains `r nrow(p2_df)` rows, and `r ncol(p2_df)` columns.
 The **mean** of x is `r mean(pull(p2_df, x))`; the **median** of x is `r median(pull(p2_df, x))`; 
-and the **standard deviation** of x is `r sd(pull(p2_df, x))`. The proportion
-of of cases for which x+y>1 is `r sum(pull(p2_df, vec_numeric))/500`.
+and the **standard deviation** of x is `r sd(pull(p2_df, x))`. The **proportion of cases**
+for which x+y>1 is `r sum(pull(p2_df, vec_numeric))/500`.
+
+## 2.2
 
 ```{r}
 log_gg = ggplot(p2_df, aes(x = x, y = y, color = pull(p2_df, vec_logical))) + geom_point()
@@ -81,6 +90,14 @@ ggplot(p2_df, aes(x = x, y = y, color = pull(p2_df, vec_factor))) + geom_point()
 ggsave(plot = log_gg, "logical.pdf", height = 4, width = 6)
 ```
 
+*Comments*: 
 
+The color scales for the first plot of logical vectors means two results from the logical equation:
+**TRUE** means x+y is larger than 1, and **FALSE** means that x+y is smaller than 1.
+
+For the second plot, the color scale means the the value of numeric vectors. A darker color means a larger value.
+
+For the third plot, same with the first plot, color scale means two categories of the result. **TRUE** 
+means x+y is larger than 1, and **FALSE** means that x+y is smaller than 1.
 
 
