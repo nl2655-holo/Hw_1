@@ -16,7 +16,7 @@ library(tidyverse)
 
 p1_df = tibble(
   norm_samp = rnorm(8),
-  vec_logical = rnorm>0,
+  vec_logical = norm_samp>0,
   vec_char = c("LENGTH_1","LENGTH_2","LENGTH_3","LENGTH_4","LENGTH_5","LENGTH_6","LENGTH_7","LENGTH_8"),
   vec_factor = factor(c("l","m","s","s","m","l","m","s"))
 )
