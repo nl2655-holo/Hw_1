@@ -11,8 +11,24 @@ Here's a **code chunk** that samples from
 a _normal distribution_:
 
 ```{r}
-normal_db = rnorm(8)
-length(samp)
+library(tidyverse)
+
+p1_df = tibble(
+  norm_samp = rnorm(8),
+  vec_numeric = 1:8,
+  vec_logical = c(TRUE, FALSE),
+  vec_char = c(8),
+  vec_factor = factor(c("level_1","level_2","level_3")),
+)
+
+p1_df = tibble(
+  norm_samp = rnorm(8),
+  vec_numeric = 1:8,
+  vec_logical = c(TRUE, TRUE,TRUE,FALSE,FALSE,FALSE,FALSE,FALSE),
+  vec_char = c("LENGTH_1","LENGTH_2","LENGTH_3","LENGTH_4","LENGTH_5","LENGTH_6","LENGTH_7","LENGTH_8"),
+  vec_factor = factor(c("level_1","level_2","level_3"))(8)
+)
+
 ```
 
 # Section 2
